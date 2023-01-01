@@ -1,0 +1,11 @@
+@import './colors';
+
+footer {
+  height: 10vh;
+}
+
+@each $icon, $color in $colors {
+  ##{$icon} {
+    color: $color;
+  }
+}

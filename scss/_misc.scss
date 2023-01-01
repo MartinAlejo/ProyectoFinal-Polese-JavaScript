@@ -1,0 +1,9 @@
+.fontSizeTitle {
+  font-size: 3rem;
+}
+
+.shadowBox {
+  &:hover {
+    box-shadow: 1px 1px 10px #000;
+  }
+}

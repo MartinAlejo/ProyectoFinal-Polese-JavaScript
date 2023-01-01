@@ -1,0 +1,11 @@
+.navLogoCustom {
+  &:hover {
+    animation: pulse;
+    animation-duration: 3s;
+  }
+}
+
+.fadeInEntrance {
+  animation: fadeIn;
+  animation-duration: 2s;
+}

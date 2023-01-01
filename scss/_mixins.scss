@@ -1,0 +1,11 @@
+@mixin imgCoverWithHeight ($height) {
+  width: 100%;
+  height: $height;
+  object-fit: cover;
+}
+
+@mixin imgCoverWithMaxHeight ($height) {
+  width: 100%;
+  max-height: $height;
+  object-fit: cover;
+}

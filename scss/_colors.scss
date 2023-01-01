@@ -1,0 +1,23 @@
+$colors: (
+  "wpIcon" : #128c7e,
+  "igIcon" : #833AB4,
+  "fbIcon" : #4267B2
+);
+
+body {
+  background-color: #F4F4F4;
+}
+
+#indexBtn {
+  background-color: #47525d;
+}
+
+#contactoBtn {
+  background-color: #47525d;
+}
+
+.dropdown-item {
+  &:active{
+    background-color: rgb(43, 41, 41) !important;
+  }
+}

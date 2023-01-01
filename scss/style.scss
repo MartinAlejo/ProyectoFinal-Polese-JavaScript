@@ -1,0 +1,95 @@
+@import './animations';
+@import './mixins';
+@import './fonts';
+@import './images';
+
+@import './misc';
+@import './footer';
+
+@import './pages_ubicacion';
+
+@media (min-width: 576px) {
+  /* sm */
+  .card-img-top {
+    @include imgCoverWithHeight(35vh);
+  }
+}
+
+@media (min-width: 768px) {
+  /* md */
+}
+
+@media (min-width: 992px) {
+  /* lg */
+  .carousel img {
+    @include imgCoverWithHeight(90vh);
+  }
+
+  #imgContacto {
+    @include imgCoverWithMaxHeight(140vh)
+  }
+
+  .modal img {
+    @include imgCoverWithHeight(80vh)
+  }
+
+}
+
+@media (min-width: 1200px) {
+  /* xl */
+  .card-img-top {
+    @include imgCoverWithHeight(45vh)
+  }
+
+  .carousel img {
+    @include imgCoverWithHeight(140vh)
+  }
+
+  #mapUbicacion {
+    min-height: 55vh;
+  }
+
+}
+
+@media (min-width: 1400px) {
+  /* xxl */
+  .carousel img {
+    @include imgCoverWithHeight(90vh)
+  }
+
+  #imgContacto {
+    @include imgCoverWithMaxHeight(100vh)
+  }
+
+  footer {
+    height: 7vh;
+  }
+
+  #indexTitle {
+    font-size: 4rem;
+  }
+
+  #indexText {
+    font-size: 1.5rem;
+  }
+
+  #indexBtn {
+    font-size: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  #contactoBtn {
+    font-size: 1.2rem;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+}

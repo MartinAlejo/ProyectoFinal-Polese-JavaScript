@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   
+    <meta name="description" content="Vení a conocer nuestra historia">
+
+    <link rel="stylesheet" href="../css/style.css">
+  
+    <title>Nosotros</title>
+  </head>
+  
+  <body class="d-flex flex-column min-vh-100">
+
+    <!-- HEADER -->
+
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+
+          <a class="navLogoCustom navbar-brand ms-3" href="../index.html">
+            <img src="../assets/images/bread.png" width="30" height="24">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item mx-4">
+                <a class="nav-link active" aria-current="page" href="#">Nosotros</a>
+              </li>
+              <li class="nav-item dropdown mx-4">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../pages/productos_salados.html">Salados</a></li>
+                  <li><a class="dropdown-item" href="../pages/productos_dulces.html">Dulces</a></li>
+                </ul>
+              </li>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="../pages/contacto.html">Contacto</a>
+              </li>
+              <li class="nav-item mx-4">
+                <a class="nav-link" href="../pages/ubicacion.html">Ubicación</a>
+              </li>
+            </ul>
+          </div>
+
+          <a href="./carrito.html" class="me-3 mt-2 position-relative">
+            <img src="../assets/images/cart.png" alt="carrito">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador-carrito">
+              0
+            </span>
+          </a>
+
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+
+    <main class="container-fluid p-0">
+
+      <div class="row h-100 m-0">
+
+        <div class="col-12 col-lg-6 p-0">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3500">
+                <img src="../assets/images/nosotros_bakery_1.webp" class="d-block w-100" alt="algunos de nuestros productos">
+              </div>
+              <div class="carousel-item" data-bs-interval="3500">
+                <img src="../assets/images/nosotros_bakery_2.webp" class="d-block w-100" alt="nuestra panadería desde fuera">
+              </div>
+              <div class="carousel-item" data-bs-interval="3500">
+                <img src="../assets/images/nosotros_bakery_3.webp" class="d-block w-100" alt="algunos de nuestros productos">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="fadeInEntrance col-12 col-lg-6 p-0">
+
+          <div class="row h-100 m-0">
+
+            <div class="col-12 d-flex flex-column align-items-center justify-content-center p-5 py-lg-0">
+              <h1 class="fontAlexBrush fontSizeTitle mb-5">¿Quiénes somos?</h1>
+              <p class="mb-0" id="nosotrosText"> Con más de 20 años en la zona Sur elaborando productos de Confitería Pastelería y Bombones de gran calidad y variedad, también ofrecemos el servicio de Catering para particulares y empresas, cuidando y ampliando las variedades según las preferencias del cliente y la temporada. Seguimos la tradición y el trabajo con las mejores materias primas que garantizan la calidad del producto final y la satisfacción del cliente. Día a día nuestros experimentados pasteleros ponen al horno toda su dedicación y esfuerzo que combinada con la mejor atención, es la fórmula perfecta para entregar un excelente producto.</p>
+            </div>
+            
+            <!-- El video solo se muestra a partir de xl -->
+            <div class="d-none d-xl-block col-12 d-flex flex-column align-items-center justify-content-center p-5 pt-0">
+              <iframe class="h-100 w-100" src="https://www.youtube.com/embed/p_X65G3LL_Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="mt-auto container-fluid bg-dark text-light">
+      <div class="row h-100">
+        <div class="col h-100 d-flex align-items-center justify-content-between">
+          <p class="mb-0"><small>Copyright &copy Martin Alejo Polese</small></p>
+          <div>
+            <a class="me-3" href="#" id="wpIcon"> <i class="bi bi-whatsapp"></i></a>
+            <a class="me-3" href="#" id="igIcon"> <i class="bi bi-instagram"></i></a>
+            <a class="me-3" href="#" id="fbIcon">  <i class="bi bi-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <!-- SCRIPTS LOCALES -->
+
+    <script src="../scripts/contador_carrito.js"></script>    
+  
+  </body>
+</html>
