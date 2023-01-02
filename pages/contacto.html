@@ -77,7 +77,7 @@
       <div class="row h-100 m-0">
 
         <div class="fadeInEntrance col col-lg-6 d-flex flex-column justify-content-center p-5 py-xxl-0 m-5 m-lg-0">
-          <form method="get" class="main__form" id="contacto-form">
+          <form method="get" class="main__form needs-validation" id="contacto-form">
             <fieldset>
               <p class="mt-0"><em>Nuestro horario de atención es de lunes a jueves, de 7 a 20 hs. Viernes, de 7 a 16 hs. Sábados de 7 a 12 hs. </em></p>
               <p class="mb-4 mt-0"><em>Dejanos tu consulta en el siguiente formulario y te daremos una respuesta a la brevedad.</em></p>
@@ -86,12 +86,12 @@
               
               <div class="mb-3">
                   <label for="Nombre" class="form-label">Nombre:</label>
-                  <input type="text" class="form-control" name="Nombre" placeholder="Ingrese su nombre">
+                  <input type="text" class="form-control" name="Nombre" placeholder="Ingrese su nombre" required>
               </div>
     
               <div class="mb-3">
                   <label for="Email" class="form-label">Email:</label>
-                  <input type="email" class="form-control" name="Email" placeholder="Ingrese su correo">
+                  <input type="email" class="form-control" name="Email" placeholder="Ingrese su correo" required>
               </div>
     
               <div class="mb-3">
@@ -101,7 +101,7 @@
                 
               <div class="mb-3">
                 <label for="Mensaje" class="form-label">Mensaje:</label>
-                <textarea class="form-control" rows="5" name="Mensaje"></textarea>
+                <textarea class="form-control" rows="5" name="Mensaje" required></textarea>
               </div>
 
               <input type="submit" value="Enviar" class="btn btn-secondary" id="contactoBtn">
@@ -141,14 +141,29 @@
 
     <!-- SCRIPTS LOCALES -->
 
+    <script>
+      (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()
+    </script>
     <script src="../scripts/contador_carrito.js"></script>
     <script src="../scripts/contacto_page.js"></script>
-
-    <!-- <script>
-      $(function() {
-        toastr.success("Hola");
-      })
-    </script> -->
 
   </body>
 </html>
