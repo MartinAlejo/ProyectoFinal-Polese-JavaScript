@@ -44,12 +44,12 @@ class SistemaDeVentas {
 
   // Agrega un nuevo producto al sistema de ventas. Devuelve true si se pudo agregar
   // false en caso contrario
-  agregarNuevoProducto(nombreDeProducto, precio, descripcion = "", nombreDeArchivo = "", titulo = "", modalID = "", cantidad) {
+  agregarNuevoProducto(nombreDeProducto, precio, descripcion = "", nombreDeArchivo = "", titulo = "", categoria = "", cantidad) {
     if (precio < 0 || this.existeProducto(nombreDeProducto)) {
       return false;
     }
 
-    let producto = new Producto(nombreDeProducto, precio, descripcion, nombreDeArchivo, titulo, modalID);
+    let producto = new Producto(nombreDeProducto, precio, descripcion, nombreDeArchivo, titulo, categoria);
 
     this.stocks.push(new Stock(producto, cantidad));
 
