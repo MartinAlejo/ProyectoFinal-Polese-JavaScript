@@ -123,8 +123,16 @@ function agregarAlCarrito(evento) {
 
   let venta = SISTEMA_DE_VENTAS.venderProducto(nombreDeProducto, 1);
 
+  let tituloDeProducto = target.parentElement.querySelector("h5").innerText;
+
   if (!venta) {
-    alert("No queda mas stock de " + target.parentElement.querySelector("h5").innerText); // No hay stock
+    // No hay stock
+    Swal.fire({
+      title: 'Sin stock',
+      text: 'No queda más stock de ' + tituloDeProducto,
+      icon: 'error',
+      showConfirmButton: false
+    })
     return false;
   }
 

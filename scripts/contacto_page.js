@@ -1,4 +1,4 @@
-
+// Muestra un mensaje de que el formulario se envio correctamente
 function mostrarMensajeDeEnviado(e) {
   e.preventDefault();
 
