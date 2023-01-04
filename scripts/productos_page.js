@@ -1,13 +1,17 @@
 // Construye los cards en el HTML que contendran a los productos
-function construirCardsHTML() {
+function construirCardsHTML(carpetaImgs, categoria) {
   for (producto of PRODUCTOS) {
+    if (producto.categoria != categoria) {
+      continue; // El producto no coincide con la categoria buscada. Se saltea
+    }
+
     let contenedor = document.createElement("div");
     contenedor.classList.add("col-12", "col-md-6", "col-lg-4", "col-xl-3", "py-4");
     contenedor.setAttribute("data-aos","zoom-in");
 
     contenedor.innerHTML = ` 
     <div class="card text-center h-100 shadowBox">
-      <img src="../assets/images/productos_dulces/${producto.nombreDeArchivo}" class="card-img-top" alt="${producto.titulo}" data-bs-toggle="modal" data-bs-target="#modal-${producto.nombre}">
+      <img src="${carpetaImgs}/${producto.nombreDeArchivo}" class="card-img-top" alt="${producto.titulo}" data-bs-toggle="modal" data-bs-target="#modal-${producto.nombre}">
       <div class="card-body p-1 d-flex flex-column">
         <h5 class="card-title pt-2 pb-1 mb-0">${producto.titulo}</h5>
         <p class="card-text text-start p-2">${producto.descripcion}</p>
@@ -23,8 +27,12 @@ function construirCardsHTML() {
 }
 
 // Construye los modals en el HTML que se abriran al clickear la imagen de los productos
-function consturirModalsHTML() {
+function consturirModalsHTML(carpetaImgs, categoria) {
   for (producto of PRODUCTOS) {
+    if (producto.categoria != categoria) {
+      continue; // El producto no coincide con la categoria buscada. Se saltea
+    }
+
     let contenedor = document.createElement("div");
     contenedor.classList.add("modal","fade");
     contenedor.setAttribute("id","modal-"+producto.nombre);
@@ -36,7 +44,7 @@ function consturirModalsHTML() {
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-body">
-          <img src="../assets/images/productos_dulces/${producto.nombreDeArchivo}" alt="" class="img-fluid">
+          <img src="${carpetaImgs}/${producto.nombreDeArchivo}" alt="" class="img-fluid">
         </div>
       </div>
     </div>
@@ -47,10 +55,10 @@ function consturirModalsHTML() {
   }
 }
 
-// Construye la pagina HTML a partir de los "PRODUCTOS"
-function consturirHTML() {
-  construirCardsHTML();
-  consturirModalsHTML();
+// Construye la pagina HTML a partir de los "PRODUCTOS", segun la categoría que corresponda
+function consturirHTML(carpetaImgs, categoria) {
+  construirCardsHTML(carpetaImgs, categoria);
+  consturirModalsHTML(carpetaImgs, categoria);
 }
 
 // Dada una cantidad, devuelve un array de stocks para inicializar el sistema de ventas
@@ -148,6 +156,7 @@ function agregarAlCarrito(evento) {
 ////////////////////////////////////// MAIN /////////////////////////////////////////////////
 
 const PRODUCTOS = [
+  // Productos dulces
   new Producto("magdalena",2,"Super esponjosas, de vainilla o chocolate y rellenas con dulce de leche.","productos_dulces_cupcake.webp","Magdalenas","dulce"),
   new Producto("medialuna",3,"De manteca. Suaves y esponjosas, bañadas con riquísima almíbar.","productos_dulces_medialuna_de_manteca.webp","Medialunas","dulce"),
   new Producto("brownie",5,"Suavecitos, húmedos, chocolatosos y súper deliciosos.","productos_dulces_brownie.webp","Brownies","dulce"),
@@ -159,7 +168,20 @@ const PRODUCTOS = [
   new Producto("pandulce",5,"De textura suave y esponjosa, rellenos con frutos secos y fruta abrillantada.","productos_dulces_pan_dulce.webp","Panes dulces","dulce"),
   new Producto("tartadericota",8,"Exquisitas, contundentes y dulces, rellenas con la ricota casera mas rica.","productos_dulces_tarta_de_ricota.webp","Tartas de ricota","dulce"),
   new Producto("torta",12,"Super cremosas, con corazón de bizcocho esponjoso y rellenas de frutas.","productos_dulces_torta.webp","Tortas","dulce"),
-  new Producto("pastafrola",12,"Riquísimas, rellenas con membrillo y espolvoreadas con coco rallado.","productos_dulces_pastafrola.webp","Pastafrolas","dulce")
+  new Producto("pastafrola",12,"Riquísimas, rellenas con membrillo y espolvoreadas con coco rallado.","productos_dulces_pastafrola.webp","Pastafrolas","dulce"),
+  // Productos salados
+  new Producto("bizcocho",4,"Super crocantes y sabrosos, ideal para acompañar tu mate.","productos_salados_bizcochitos.webp","Bizcochitos","salado"),
+  new Producto("pan",3,"De distintos tipos, todo artesanal. También integral.","productos_salados_bread.webp","Panes","salado"),
+  new Producto("chipa",5,"Pan crocante relleno con queso, esponjosos por dentro.","productos_salados_chipa.webp","Chipas","salado"),
+  new Producto("grisin",3,"Saborizados y de elaboración propia. También hay integrales.","productos_salados_grisines.webp","Grisines","salado"),
+  new Producto("librito",3,"De grasa u hojaldre, un excelente acompañamiento para tu mate.","productos_salados_libritos.webp","Libritos","salado"),
+  new Producto("pansaborizado",5,"Esponjosos y suaves, de distintos sabores.","productos_salados_pan_saborizado.webp","Panes saborizados","salado"),
+  new Producto("prepizza",8,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_prepizza.webp","Prepizzas","salado"),
+  new Producto("sanguchedemiga",6,"Muy ricos, los tradicionales con jamon y queso. También con huevo o morron, entre otras variedades.","productos_salados_sandwich.webp","Sanguches de miga","salado"),
+  new Producto("scondequeso",4,"Crocantes y deliciosos, scones rellenos con queso.","productos_salados_scon.webp","Scones de queso","salado"),
+  new Producto("cuernito",5,"Cuernitos de grasa, con el inigualable toque de manteca.","productos_salados_cuernitos.webp","Cuernitos","salado"),
+  new Producto("pizzeta",6,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_pizzeta.webp","Pizzetas","salado"),
+  new Producto("medialunadegrasa",3,"Crocantes por fuera y súper tiernas por dentro.","productos_salados_medialuna_de_grasa.webp","Medialunas de grasa","salado")
 ]
 
 const STOCK_DE_PRODUCTOS = 10;
@@ -167,20 +189,3 @@ const STOCK_DE_PRODUCTOS = 10;
 const SISTEMA_DE_VENTAS = new SistemaDeVentas(generarStockDeProductos(STOCK_DE_PRODUCTOS)); // El stock inicial de los productos del sistema sera "STOCK_DE_PRODUCTOS"
 
 const CARRITO = cargarCarrito();
-
-function main() {
-  consturirHTML();
-
-  guardarCarritoEnStorage(CARRITO);
-
-  let botonesDeAgregarAlCarrito = document.getElementsByClassName("btnAgregarAlCarrito")
-
-  for (btn of botonesDeAgregarAlCarrito) {
-    btn.addEventListener("click",(evento) => agregarAlCarrito(evento));
-  }
-  
-
-  console.log(CARRITO);
-}
-
-main()
