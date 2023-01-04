@@ -33,8 +33,4 @@ class Carrito {
     return this.ventas.find((venta) => venta.producto.nombre === nombreDeProducto.toLowerCase());
   }
 
-  // toJSON() {
-  //   return JSON.stringify(this);
-  // }
-
 }
