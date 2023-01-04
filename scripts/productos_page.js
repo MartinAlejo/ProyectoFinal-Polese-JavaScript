@@ -124,7 +124,7 @@ function sumarVentaEnElContadorDelCarrito(venta) {
 
 
 // Genera una venta y la agrega al carrito (actualizando a su vez el storage)
-// Si se pudo agregar al carrito devuelve true, sino, devuelve false
+// Si se pudo agregar al carrito devuelve true, sino, muestra mensaje de que no hay stock y devuelve false
 function agregarAlCarrito(evento) {
   let target = evento.target;
   let nombreDeProducto = obtenerNombreDeProducto(target.id);
@@ -153,7 +153,7 @@ function agregarAlCarrito(evento) {
   guardarCarritoEnStorage();
 }
 
-////////////////////////////////////// MAIN /////////////////////////////////////////////////
+////////////////////////////////////// CONSTANTES GLOBALES /////////////////////////////////////////////////
 
 const PRODUCTOS = [
   // Productos dulces
