@@ -86,18 +86,16 @@ function cargarCarrito() {
   return reconstruirCarrito(carritoParseado);
 }
 
-// Devuelve los productos que estan almacenados en un archivo .json
-async function obtenerProductos() {
+// Carga los productos que estan almacenados en un archivo .json, en la constante PRODUCTOS
+async function cargarProductos() {
   let response = await fetch("../data/productos.json");
   let productos_json = await response.json();
-  let productos = [];
 
   for (p of productos_json) {
     let producto = new Producto(p.nombre, p.precio, p.descripcion, p.nombreDeArchivo, p.titulo, p.categoria);
-    productos.push(producto);
+    PRODUCTOS.push(producto);
   }
 
-  return productos;
 }
 
 // Dado un carrito parseado, lo reconstruye y devuelve
@@ -196,7 +194,7 @@ const PRODUCTOS = [
   new Producto("medialunadegrasa",3,"Crocantes por fuera y súper tiernas por dentro.","productos_salados_medialuna_de_grasa.webp","Medialunas de grasa","salado")
 ]
 
-// const PRODUCTOS = obtenerProductos();
+// const PRODUCTOS = [];
 
 const STOCK_DE_PRODUCTOS = 10;
 
