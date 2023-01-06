@@ -96,7 +96,7 @@ async function obtenerProductos() {
     let producto = new Producto(p.nombre, p.precio, p.descripcion, p.nombreDeArchivo, p.titulo, p.categoria);
     productos.push(producto);
   }
-  console.log(productos);
+
   return productos;
 }
 
@@ -162,8 +162,6 @@ function agregarAlCarrito(evento) {
 
   sumarVentaEnElContadorDelCarrito(venta);
 
-  console.log(CARRITO);
-
   guardarCarritoEnStorage();
 }
 
@@ -205,5 +203,3 @@ const STOCK_DE_PRODUCTOS = 10;
 const SISTEMA_DE_VENTAS = new SistemaDeVentas(generarStockDeProductos(STOCK_DE_PRODUCTOS)); // El stock inicial de los productos del sistema sera "STOCK_DE_PRODUCTOS"
 
 const CARRITO = cargarCarrito();
-
-console.log(PRODUCTOS);
