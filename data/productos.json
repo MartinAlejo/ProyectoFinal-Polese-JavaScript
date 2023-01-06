@@ -1,0 +1,218 @@
+[
+  {
+    "nombre": "magdalena",
+    "precio": 2,
+    "descripcion": "Super esponjosas, de vainilla o chocolate y rellenas con dulce de leche.",
+    "nombreDeArchivo": "productos_dulces_cupcake.webp",
+    "titulo": "Magdalenas",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "medialuna",
+    "precio": 3,
+    "descripcion": "De manteca. Suaves y esponjosas, bañadas con riquísima almíbar.",
+    "nombreDeArchivo": "productos_dulces_medialuna_de_manteca.webp",
+    "titulo": "Medialunas",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "brownie",
+    "precio": 5,
+    "descripcion": "Suavecitos, húmedos, chocolatosos y súper deliciosos.",
+    "nombreDeArchivo": "productos_dulces_brownie.webp",
+    "titulo": "Brownies",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "churro",
+    "precio": 4,
+    "descripcion": "Crocantes, rellenos de dulce de leche artesanal. También bañados en chocolate.",
+    "nombreDeArchivo": "productos_dulces_churro.webp",
+    "titulo": "Churros",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "budin",
+    "precio": 8,
+    "descripcion": "Riquísimos, con mucho gusto a limón, tiernos y húmedos. También hay de chocolate.",
+    "nombreDeArchivo": "productos_dulces_budin.webp",
+    "titulo": "Budines",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "cookie",
+    "precio": 3,
+    "descripcion": "Deliciosas cookies de vainilla con chips de chocolate, de sabor irresistible.",
+    "nombreDeArchivo": "productos_dulces_cookie.webp",
+    "titulo": "Cookies",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "dona",
+    "precio": 5,
+    "descripcion": "Super esponjosas, con baño de chocolate o frutilla y rellenas con dulce de leche.",
+    "nombreDeArchivo": "productos_dulces_donut.webp",
+    "titulo": "Donas",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "cheesecake",
+    "precio": 10,
+    "descripcion": "Cremosos y suaves, con una base de vainilla o chocolate y bañados con dulce de frutilla o maracuya.",
+    "nombreDeArchivo": "productos_dulces_cheesecake.webp",
+    "titulo": "Cheesecakes",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "pandulce",
+    "precio": 5,
+    "descripcion": "De textura suave y esponjosa, rellenos con frutos secos y fruta abrillantada.",
+    "nombreDeArchivo": "productos_dulces_pan_dulce.webp",
+    "titulo": "Panes dulces",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "tartadericota",
+    "precio": 8,
+    "descripcion": "Exquisitas, contundentes y dulces, rellenas con la ricota casera mas rica.",
+    "nombreDeArchivo": "productos_dulces_tarta_de_ricota.webp",
+    "titulo": "Tartas de ricota",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "torta",
+    "precio": 12,
+    "descripcion": "Super cremosas, con corazón de bizcocho esponjoso y rellenas de frutas.",
+    "nombreDeArchivo": "productos_dulces_torta.webp",
+    "titulo": "Tortas",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "pastafrola",
+    "precio": 12,
+    "descripcion": "Riquísimas, rellenas con membrillo y espolvoreadas con coco rallado.",
+    "nombreDeArchivo": "productos_dulces_pastafrola.webp",
+    "titulo": "Pastafrolas",
+    "categoria": "dulce"
+  },
+
+  {
+    "nombre": "bizcocho",
+    "precio": 4,
+    "descripcion": "Super crocantes y sabrosos, ideal para acompañar tu mate.",
+    "nombreDeArchivo": "productos_salados_bizcochitos.webp",
+    "titulo": "Bizcochitos",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "pan",
+    "precio": 3,
+    "descripcion": "De distintos tipos, todo artesanal. También integral.",
+    "nombreDeArchivo": "productos_salados_bread.webp",
+    "titulo": "Panes",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "chipa",
+    "precio": 5,
+    "descripcion": "Pan crocante relleno con queso, esponjosos por dentro.",
+    "nombreDeArchivo": "productos_salados_chipa.webp",
+    "titulo": "Chipas",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "grisin",
+    "precio": 3,
+    "descripcion": "Saborizados y de elaboración propia. También hay integrales.",
+    "nombreDeArchivo": "productos_salados_grisines.webp",
+    "titulo": "Grisines",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "librito",
+    "precio": 3,
+    "descripcion": "De grasa u hojaldre, un excelente acompañamiento para tu mate.",
+    "nombreDeArchivo": "productos_salados_libritos.webp",
+    "titulo": "Libritos",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "pansaborizado",
+    "precio": 5,
+    "descripcion": "Esponjosos y suaves, de distintos sabores.",
+    "nombreDeArchivo": "productos_salados_pan_saborizado.webp",
+    "titulo": "Panes saborizados",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "prepizza",
+    "precio": 8,
+    "descripcion": "De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.",
+    "nombreDeArchivo": "productos_salados_prepizza.webp",
+    "titulo": "Prepizzas",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "sanguchedemiga",
+    "precio": 6,
+    "descripcion": "Muy ricos, los tradicionales con jamon y queso. También con huevo o morron, entre otras variedades.",
+    "nombreDeArchivo": "productos_salados_sandwich.webp",
+    "titulo": "Sanguches de miga",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "scondequeso",
+    "precio": 4,
+    "descripcion": "Crocantes y deliciosos, scones rellenos con queso.",
+    "nombreDeArchivo": "productos_salados_scon.webp",
+    "titulo": "Scones de queso",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "cuernito",
+    "precio": 5,
+    "descripcion": "Cuernitos de grasa, con el inigualable toque de manteca.",
+    "nombreDeArchivo": "productos_salados_cuernitos.webp",
+    "titulo": "Cuernitos",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "pizzeta",
+    "precio": 6,
+    "descripcion": "De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.",
+    "nombreDeArchivo": "productos_salados_pizzeta.webp",
+    "titulo": "Pizzetas",
+    "categoria": "salado"
+  },
+
+  {
+    "nombre": "medialunadegrasa",
+    "precio": 3,
+    "descripcion": "Crocantes por fuera y súper tiernas por dentro.",
+    "nombreDeArchivo": "productos_salados_medialuna_de_grasa.webp",
+    "titulo": "Medialunas de grasa",
+    "categoria": "salado"
+  }
+
+]
