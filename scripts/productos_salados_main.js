@@ -11,7 +11,7 @@ function main() {
     btn.addEventListener("click",(evento) => agregarAlCarrito(evento));
   }
   
-  console.log(CARRITO);
+  //console.log(CARRITO);
 }
 
 main()
