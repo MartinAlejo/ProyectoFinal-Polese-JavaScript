@@ -78,7 +78,7 @@ function cargarCarrito() {
   let carrito = localStorage.getItem("carrito");
 
   if (!carrito) {
-    return new Carrito(); // No hay carrito guardado en el localStorage
+    return []; // No hay carrito guardado en el localStorage
   }
 
   carritoParseado = JSON.parse(carrito);
@@ -86,8 +86,8 @@ function cargarCarrito() {
   return reconstruirCarrito(carritoParseado);
 }
 
-// Carga los productos que estan almacenados en un archivo .json, en la constante PRODUCTOS
-async function cargarProductos() {
+// Obtiene los productos que estan almacenados en un archivo .json
+async function obtenerProductos() {
   let response = await fetch("../data/productos.json");
   let productos_json = await response.json();
 
@@ -95,12 +95,11 @@ async function cargarProductos() {
     let producto = new Producto(p.nombre, p.precio, p.descripcion, p.nombreDeArchivo, p.titulo, p.categoria);
     PRODUCTOS.push(producto);
   }
-
 }
 
 // Dado un carrito parseado, lo reconstruye y devuelve
 function reconstruirCarrito(carritoParseado) {
-  let carrito = new Carrito();
+  let carrito_aux = new Carrito();
 
   for(venta of carritoParseado.ventas) {
     let ventaRestaurada = SISTEMA_DE_VENTAS.venderProducto(venta.producto.nombre, venta.cantidad); // De esta manera, facilmente se actualiza el stock al restaurar
@@ -109,10 +108,10 @@ function reconstruirCarrito(carritoParseado) {
       continue; // Hubo un problema al intentar restaurar esta venta, no se restaura (se saltea)
     }
 
-    carrito.agregarVenta(ventaRestaurada);
+    carrito_aux.agregarVenta(ventaRestaurada);
   }
 
-  return carrito;
+  return carrito_aux.ventas;
 }
 
 // Guarda el carrito en el storage
@@ -165,39 +164,39 @@ function agregarAlCarrito(evento) {
 
 ////////////////////////////////////// CONSTANTES GLOBALES /////////////////////////////////////////////////
 
-const PRODUCTOS = [
-  // Productos dulces
-  new Producto("magdalena",2,"Super esponjosas, de vainilla o chocolate y rellenas con dulce de leche.","productos_dulces_cupcake.webp","Magdalenas","dulce"),
-  new Producto("medialuna",3,"De manteca. Suaves y esponjosas, bañadas con riquísima almíbar.","productos_dulces_medialuna_de_manteca.webp","Medialunas","dulce"),
-  new Producto("brownie",5,"Suavecitos, húmedos, chocolatosos y súper deliciosos.","productos_dulces_brownie.webp","Brownies","dulce"),
-  new Producto("churro",4,"Crocantes, rellenos de dulce de leche artesanal. También bañados en chocolate.","productos_dulces_churro.webp","Churros","dulce"),
-  new Producto("budin",8,"Riquísimos, con mucho gusto a limón, tiernos y húmedos. También hay de chocolate.","productos_dulces_budin.webp","Budines","dulce"),
-  new Producto("cookie",3,"Deliciosas cookies de vainilla con chips de chocolate, de sabor irresistible.","productos_dulces_cookie.webp","Cookies","dulce"),
-  new Producto("dona",5,"Super esponjosas, con baño de chocolate o frutilla y rellenas con dulce de leche.","productos_dulces_donut.webp","Donas","dulce"),
-  new Producto("cheesecake",10,"Cremosos y suaves, con una base de vainilla o chocolate y bañados con dulce de frutilla o maracuya.","productos_dulces_cheesecake.webp","Cheesecakes","dulce"),
-  new Producto("pandulce",5,"De textura suave y esponjosa, rellenos con frutos secos y fruta abrillantada.","productos_dulces_pan_dulce.webp","Panes dulces","dulce"),
-  new Producto("tartadericota",8,"Exquisitas, contundentes y dulces, rellenas con la ricota casera mas rica.","productos_dulces_tarta_de_ricota.webp","Tartas de ricota","dulce"),
-  new Producto("torta",12,"Super cremosas, con corazón de bizcocho esponjoso y rellenas de frutas.","productos_dulces_torta.webp","Tortas","dulce"),
-  new Producto("pastafrola",12,"Riquísimas, rellenas con membrillo y espolvoreadas con coco rallado.","productos_dulces_pastafrola.webp","Pastafrolas","dulce"),
-  // Productos salados
-  new Producto("bizcocho",4,"Super crocantes y sabrosos, ideal para acompañar tu mate.","productos_salados_bizcochitos.webp","Bizcochitos","salado"),
-  new Producto("pan",3,"De distintos tipos, todo artesanal. También integral.","productos_salados_bread.webp","Panes","salado"),
-  new Producto("chipa",5,"Pan crocante relleno con queso, esponjosos por dentro.","productos_salados_chipa.webp","Chipas","salado"),
-  new Producto("grisin",3,"Saborizados y de elaboración propia. También hay integrales.","productos_salados_grisines.webp","Grisines","salado"),
-  new Producto("librito",3,"De grasa u hojaldre, un excelente acompañamiento para tu mate.","productos_salados_libritos.webp","Libritos","salado"),
-  new Producto("pansaborizado",5,"Esponjosos y suaves, de distintos sabores.","productos_salados_pan_saborizado.webp","Panes saborizados","salado"),
-  new Producto("prepizza",8,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_prepizza.webp","Prepizzas","salado"),
-  new Producto("sanguchedemiga",6,"Muy ricos, los tradicionales con jamon y queso. También con huevo o morron, entre otras variedades.","productos_salados_sandwich.webp","Sanguches de miga","salado"),
-  new Producto("scondequeso",4,"Crocantes y deliciosos, scones rellenos con queso.","productos_salados_scon.webp","Scones de queso","salado"),
-  new Producto("cuernito",5,"Cuernitos de grasa, con el inigualable toque de manteca.","productos_salados_cuernitos.webp","Cuernitos","salado"),
-  new Producto("pizzeta",6,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_pizzeta.webp","Pizzetas","salado"),
-  new Producto("medialunadegrasa",3,"Crocantes por fuera y súper tiernas por dentro.","productos_salados_medialuna_de_grasa.webp","Medialunas de grasa","salado")
-]
+// const PRODUCTOS = [
+//   // Productos dulces
+//   new Producto("magdalena",2,"Super esponjosas, de vainilla o chocolate y rellenas con dulce de leche.","productos_dulces_cupcake.webp","Magdalenas","dulce"),
+//   new Producto("medialuna",3,"De manteca. Suaves y esponjosas, bañadas con riquísima almíbar.","productos_dulces_medialuna_de_manteca.webp","Medialunas","dulce"),
+//   new Producto("brownie",5,"Suavecitos, húmedos, chocolatosos y súper deliciosos.","productos_dulces_brownie.webp","Brownies","dulce"),
+//   new Producto("churro",4,"Crocantes, rellenos de dulce de leche artesanal. También bañados en chocolate.","productos_dulces_churro.webp","Churros","dulce"),
+//   new Producto("budin",8,"Riquísimos, con mucho gusto a limón, tiernos y húmedos. También hay de chocolate.","productos_dulces_budin.webp","Budines","dulce"),
+//   new Producto("cookie",3,"Deliciosas cookies de vainilla con chips de chocolate, de sabor irresistible.","productos_dulces_cookie.webp","Cookies","dulce"),
+//   new Producto("dona",5,"Super esponjosas, con baño de chocolate o frutilla y rellenas con dulce de leche.","productos_dulces_donut.webp","Donas","dulce"),
+//   new Producto("cheesecake",10,"Cremosos y suaves, con una base de vainilla o chocolate y bañados con dulce de frutilla o maracuya.","productos_dulces_cheesecake.webp","Cheesecakes","dulce"),
+//   new Producto("pandulce",5,"De textura suave y esponjosa, rellenos con frutos secos y fruta abrillantada.","productos_dulces_pan_dulce.webp","Panes dulces","dulce"),
+//   new Producto("tartadericota",8,"Exquisitas, contundentes y dulces, rellenas con la ricota casera mas rica.","productos_dulces_tarta_de_ricota.webp","Tartas de ricota","dulce"),
+//   new Producto("torta",12,"Super cremosas, con corazón de bizcocho esponjoso y rellenas de frutas.","productos_dulces_torta.webp","Tortas","dulce"),
+//   new Producto("pastafrola",12,"Riquísimas, rellenas con membrillo y espolvoreadas con coco rallado.","productos_dulces_pastafrola.webp","Pastafrolas","dulce"),
+//   // Productos salados
+//   new Producto("bizcocho",4,"Super crocantes y sabrosos, ideal para acompañar tu mate.","productos_salados_bizcochitos.webp","Bizcochitos","salado"),
+//   new Producto("pan",3,"De distintos tipos, todo artesanal. También integral.","productos_salados_bread.webp","Panes","salado"),
+//   new Producto("chipa",5,"Pan crocante relleno con queso, esponjosos por dentro.","productos_salados_chipa.webp","Chipas","salado"),
+//   new Producto("grisin",3,"Saborizados y de elaboración propia. También hay integrales.","productos_salados_grisines.webp","Grisines","salado"),
+//   new Producto("librito",3,"De grasa u hojaldre, un excelente acompañamiento para tu mate.","productos_salados_libritos.webp","Libritos","salado"),
+//   new Producto("pansaborizado",5,"Esponjosos y suaves, de distintos sabores.","productos_salados_pan_saborizado.webp","Panes saborizados","salado"),
+//   new Producto("prepizza",8,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_prepizza.webp","Prepizzas","salado"),
+//   new Producto("sanguchedemiga",6,"Muy ricos, los tradicionales con jamon y queso. También con huevo o morron, entre otras variedades.","productos_salados_sandwich.webp","Sanguches de miga","salado"),
+//   new Producto("scondequeso",4,"Crocantes y deliciosos, scones rellenos con queso.","productos_salados_scon.webp","Scones de queso","salado"),
+//   new Producto("cuernito",5,"Cuernitos de grasa, con el inigualable toque de manteca.","productos_salados_cuernitos.webp","Cuernitos","salado"),
+//   new Producto("pizzeta",6,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_pizzeta.webp","Pizzetas","salado"),
+//   new Producto("medialunadegrasa",3,"Crocantes por fuera y súper tiernas por dentro.","productos_salados_medialuna_de_grasa.webp","Medialunas de grasa","salado")
+// ]
 
-// const PRODUCTOS = [];
+const PRODUCTOS = [];
 
 const STOCK_DE_PRODUCTOS = 10;
 
-const SISTEMA_DE_VENTAS = new SistemaDeVentas(generarStockDeProductos(STOCK_DE_PRODUCTOS)); // El stock inicial de los productos del sistema sera "STOCK_DE_PRODUCTOS"
+const SISTEMA_DE_VENTAS = new SistemaDeVentas(); // El stock inicial de los productos del sistema sera "STOCK_DE_PRODUCTOS"
 
-const CARRITO = cargarCarrito();
+const CARRITO = new Carrito();
