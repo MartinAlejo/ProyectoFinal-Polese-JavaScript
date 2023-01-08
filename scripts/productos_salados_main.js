@@ -16,8 +16,7 @@ async function main() {
   for (btn of botonesDeAgregarAlCarrito) {
     btn.addEventListener("click",(evento) => agregarAlCarrito(evento));
   }
-  
-  //console.log(CARRITO);
+
 }
 
 main()

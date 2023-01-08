@@ -1,3 +1,15 @@
+////////////////////////////////////// CONSTANTES GLOBALES /////////////////////////////////////////////////
+
+const PRODUCTOS = [];
+
+const STOCK_DE_PRODUCTOS = 10;
+
+const SISTEMA_DE_VENTAS = new SistemaDeVentas(); // El stock inicial de los productos del sistema sera "STOCK_DE_PRODUCTOS"
+
+const CARRITO = new Carrito();
+
+/////////////////////////////////////////// FUNCIONES //////////////////////////////////////////////////////
+
 // Construye los cards en el HTML que contendran a los productos
 function construirCardsHTML(carpetaImgs, categoria) {
   for (producto of PRODUCTOS) {
@@ -61,6 +73,17 @@ function consturirHTML(carpetaImgs, categoria) {
   consturirModalsHTML(carpetaImgs, categoria);
 }
 
+// Obtiene los productos que estan almacenados en un archivo .json
+async function obtenerProductos() {
+  let response = await fetch("../data/productos.json");
+  let productos_json = await response.json();
+
+  for (p of productos_json) {
+    let producto = new Producto(p.nombre, p.precio, p.descripcion, p.nombreDeArchivo, p.titulo, p.categoria);
+    PRODUCTOS.push(producto);
+  }
+}
+
 // Dada una cantidad, devuelve un array de stocks para inicializar el sistema de ventas
 function generarStockDeProductos(cantidad) {
   let stocks = [];
@@ -84,17 +107,6 @@ function obtenerVentasCarrito() {
   carritoParseado = JSON.parse(carrito);
 
   return reconstruirVentasCarrito(carritoParseado);
-}
-
-// Obtiene los productos que estan almacenados en un archivo .json
-async function obtenerProductos() {
-  let response = await fetch("../data/productos.json");
-  let productos_json = await response.json();
-
-  for (p of productos_json) {
-    let producto = new Producto(p.nombre, p.precio, p.descripcion, p.nombreDeArchivo, p.titulo, p.categoria);
-    PRODUCTOS.push(producto);
-  }
 }
 
 // Dado un carrito parseado, reconstruye sus ventas y las devuelve
@@ -161,42 +173,3 @@ function agregarAlCarrito(evento) {
 
   guardarCarritoEnStorage();
 }
-
-////////////////////////////////////// CONSTANTES GLOBALES /////////////////////////////////////////////////
-
-// const PRODUCTOS = [
-//   // Productos dulces
-//   new Producto("magdalena",2,"Super esponjosas, de vainilla o chocolate y rellenas con dulce de leche.","productos_dulces_cupcake.webp","Magdalenas","dulce"),
-//   new Producto("medialuna",3,"De manteca. Suaves y esponjosas, bañadas con riquísima almíbar.","productos_dulces_medialuna_de_manteca.webp","Medialunas","dulce"),
-//   new Producto("brownie",5,"Suavecitos, húmedos, chocolatosos y súper deliciosos.","productos_dulces_brownie.webp","Brownies","dulce"),
-//   new Producto("churro",4,"Crocantes, rellenos de dulce de leche artesanal. También bañados en chocolate.","productos_dulces_churro.webp","Churros","dulce"),
-//   new Producto("budin",8,"Riquísimos, con mucho gusto a limón, tiernos y húmedos. También hay de chocolate.","productos_dulces_budin.webp","Budines","dulce"),
-//   new Producto("cookie",3,"Deliciosas cookies de vainilla con chips de chocolate, de sabor irresistible.","productos_dulces_cookie.webp","Cookies","dulce"),
-//   new Producto("dona",5,"Super esponjosas, con baño de chocolate o frutilla y rellenas con dulce de leche.","productos_dulces_donut.webp","Donas","dulce"),
-//   new Producto("cheesecake",10,"Cremosos y suaves, con una base de vainilla o chocolate y bañados con dulce de frutilla o maracuya.","productos_dulces_cheesecake.webp","Cheesecakes","dulce"),
-//   new Producto("pandulce",5,"De textura suave y esponjosa, rellenos con frutos secos y fruta abrillantada.","productos_dulces_pan_dulce.webp","Panes dulces","dulce"),
-//   new Producto("tartadericota",8,"Exquisitas, contundentes y dulces, rellenas con la ricota casera mas rica.","productos_dulces_tarta_de_ricota.webp","Tartas de ricota","dulce"),
-//   new Producto("torta",12,"Super cremosas, con corazón de bizcocho esponjoso y rellenas de frutas.","productos_dulces_torta.webp","Tortas","dulce"),
-//   new Producto("pastafrola",12,"Riquísimas, rellenas con membrillo y espolvoreadas con coco rallado.","productos_dulces_pastafrola.webp","Pastafrolas","dulce"),
-//   // Productos salados
-//   new Producto("bizcocho",4,"Super crocantes y sabrosos, ideal para acompañar tu mate.","productos_salados_bizcochitos.webp","Bizcochitos","salado"),
-//   new Producto("pan",3,"De distintos tipos, todo artesanal. También integral.","productos_salados_bread.webp","Panes","salado"),
-//   new Producto("chipa",5,"Pan crocante relleno con queso, esponjosos por dentro.","productos_salados_chipa.webp","Chipas","salado"),
-//   new Producto("grisin",3,"Saborizados y de elaboración propia. También hay integrales.","productos_salados_grisines.webp","Grisines","salado"),
-//   new Producto("librito",3,"De grasa u hojaldre, un excelente acompañamiento para tu mate.","productos_salados_libritos.webp","Libritos","salado"),
-//   new Producto("pansaborizado",5,"Esponjosos y suaves, de distintos sabores.","productos_salados_pan_saborizado.webp","Panes saborizados","salado"),
-//   new Producto("prepizza",8,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_prepizza.webp","Prepizzas","salado"),
-//   new Producto("sanguchedemiga",6,"Muy ricos, los tradicionales con jamon y queso. También con huevo o morron, entre otras variedades.","productos_salados_sandwich.webp","Sanguches de miga","salado"),
-//   new Producto("scondequeso",4,"Crocantes y deliciosos, scones rellenos con queso.","productos_salados_scon.webp","Scones de queso","salado"),
-//   new Producto("cuernito",5,"Cuernitos de grasa, con el inigualable toque de manteca.","productos_salados_cuernitos.webp","Cuernitos","salado"),
-//   new Producto("pizzeta",6,"De elaboración propia, ideal para hornear o freezarlas y disfrutarlas cuando gustes.","productos_salados_pizzeta.webp","Pizzetas","salado"),
-//   new Producto("medialunadegrasa",3,"Crocantes por fuera y súper tiernas por dentro.","productos_salados_medialuna_de_grasa.webp","Medialunas de grasa","salado")
-// ]
-
-const PRODUCTOS = [];
-
-const STOCK_DE_PRODUCTOS = 10;
-
-const SISTEMA_DE_VENTAS = new SistemaDeVentas(); // El stock inicial de los productos del sistema sera "STOCK_DE_PRODUCTOS"
-
-const CARRITO = new Carrito();
