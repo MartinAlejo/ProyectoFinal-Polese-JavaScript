@@ -73,8 +73,8 @@ function generarStockDeProductos(cantidad) {
   return stocks;
 }
 
-// Carga el carrito del storage, o inicializa uno vacio en caso de no haberlo
-function cargarCarrito() {
+// Obtiene un array con las ventas del carrito del storage, o se inicializa uno vacio en caso de no haber
+function obtenerVentasCarrito() {
   let carrito = localStorage.getItem("carrito");
 
   if (!carrito) {
@@ -83,7 +83,7 @@ function cargarCarrito() {
 
   carritoParseado = JSON.parse(carrito);
 
-  return reconstruirCarrito(carritoParseado);
+  return reconstruirVentasCarrito(carritoParseado);
 }
 
 // Obtiene los productos que estan almacenados en un archivo .json
@@ -97,8 +97,8 @@ async function obtenerProductos() {
   }
 }
 
-// Dado un carrito parseado, lo reconstruye y devuelve
-function reconstruirCarrito(carritoParseado) {
+// Dado un carrito parseado, reconstruye sus ventas y las devuelve
+function reconstruirVentasCarrito(carritoParseado) {
   let carrito_aux = new Carrito();
 
   for(venta of carritoParseado.ventas) {

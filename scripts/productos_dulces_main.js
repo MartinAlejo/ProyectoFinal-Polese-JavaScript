@@ -5,7 +5,7 @@ async function main() {
 
   SISTEMA_DE_VENTAS.stocks = generarStockDeProductos(STOCK_DE_PRODUCTOS);
 
-  CARRITO.ventas = cargarCarrito();
+  CARRITO.ventas = obtenerVentasCarrito();
 
   consturirHTML(carpetaImgs,"dulce");
 
