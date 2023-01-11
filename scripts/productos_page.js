@@ -73,8 +73,8 @@ function consturirHTML(carpetaImgs, categoria) {
   consturirModalsHTML(carpetaImgs, categoria);
 }
 
-// Obtiene los productos que estan almacenados en un archivo .json
-async function obtenerProductos() {
+// Carga los productos que estan almacenados en un archivo .json a PRODUCTOS
+async function cargarProductos() {
   let response = await fetch("../data/productos.json");
   let productos_json = await response.json();
 

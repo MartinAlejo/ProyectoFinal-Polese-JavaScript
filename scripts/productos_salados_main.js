@@ -1,7 +1,7 @@
 async function main() {
   let carpetaImgs = "../assets/images/productos_salados"; // Es la carpeta donde estan las imagenes
 
-  await obtenerProductos();
+  await cargarProductos();
 
   SISTEMA_DE_VENTAS.stocks = generarStockDeProductos(STOCK_DE_PRODUCTOS);
 
@@ -16,6 +16,8 @@ async function main() {
   for (btn of botonesDeAgregarAlCarrito) {
     btn.addEventListener("click",(evento) => agregarAlCarrito(evento));
   }
+
+  console.log(CARRITO);
 
 }
 
