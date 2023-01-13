@@ -40,6 +40,12 @@ body {
 #contactoBtn {
   background-color: #47525d; }
 
+.btnAgregarAlCarrito:active {
+  background-color: #b94141; }
+
+#btn-vaciar-carrito:active {
+  background-color: #b94141; }
+
 .dropdown-item:active {
   background-color: #2b2929 !important; }
 
