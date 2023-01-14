@@ -68,6 +68,13 @@ class SistemaDeVentas {
     return false;
   }
 
+  // Dado un producto, devuelve true si queda stock, false en caso contrario
+  hayStock(nombreDeProducto) {
+    let stockDisponible = this.obtenerStock(nombreDeProducto);
+
+    return stockDisponible ? true : false;
+  }
+
   // Dada un producto y una cantidad, devuelve true si se puede realizar la venta, false en caso contrario
   sePuedeVender(nombreDeProducto, cantidad) {
     let stockDisponible = this.obtenerStock(nombreDeProducto);

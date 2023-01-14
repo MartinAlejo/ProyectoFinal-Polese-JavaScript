@@ -35,6 +35,13 @@ function construirCardsHTML(carpetaImgs, categoria) {
 
     let padre = document.getElementById("main-div");
     padre.appendChild(contenedor);
+
+    if (!(SISTEMA_DE_VENTAS.hayStock(producto.nombre))) {
+      let id = "btn-agregar-"+producto.nombre;
+      let elemento = document.getElementById(id);
+
+      elemento.setAttribute("disabled","");
+    } 
   }
 }
 
@@ -163,7 +170,10 @@ function agregarAlCarrito(evento) {
       text: 'No queda más stock de ' + tituloDeProducto,
       icon: 'error',
       showConfirmButton: false
-    })
+    });
+
+    target.setAttribute("disabled","");
+
     return false;
   }
 
