@@ -36,11 +36,12 @@ function construirCardsHTML(carpetaImgs, categoria) {
     let padre = document.getElementById("main-div");
     padre.appendChild(contenedor);
 
+    // Si no queda stock se deshabilita el boton
     if (!(SISTEMA_DE_VENTAS.hayStock(producto.nombre))) {
-      let id = "btn-agregar-"+producto.nombre;
-      let elemento = document.getElementById(id);
+      let Btnid = "btn-agregar-"+producto.nombre;
+      let BtnAgregarAlCarrito = document.getElementById(Btnid);
 
-      elemento.setAttribute("disabled","");
+      BtnAgregarAlCarrito.setAttribute("disabled","");
     } 
   }
 }
