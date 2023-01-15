@@ -28,12 +28,6 @@ body {
   }
 }
 
-#btn-confirmar-vaciar-carrito {
-  &:active {
-    background-color: rgb(185, 65, 65);
-  }
-}
-
 .dropdown-item {
   &:active{
     background-color: rgb(43, 41, 41) !important;

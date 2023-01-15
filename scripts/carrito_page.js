@@ -1,4 +1,3 @@
-
 // Elimina el carrito del local storage, y remueve todas las facturas del Html
 function vaciarCarrito() {
   localStorage.removeItem("carrito");
@@ -11,6 +10,24 @@ function vaciarCarrito() {
   detallesDeLaVenta.innerHTML = "";
 
   calcularTotalAlHTML();
+}
+
+// Abre un modal donde se pide confirmacion para vaciar el carrit
+function pedirConfirmacionVaciarCarrito() {
+  Swal.fire({
+    title: 'Borrar carrito',
+    text: "¿Estás seguro que querés borrar todos los productos de tu carrito?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Aceptar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciarCarrito();
+    }
+  })
 }
 
 // Calcula y muestra el total a facturar
@@ -85,9 +102,9 @@ function cargarVentasAlHTML() {
 function main() {
   cargarVentasAlHTML();
 
-  btnVaciarCarrito = document.getElementById("btn-confirmar-vaciar-carrito");
+  btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
 
-  btnVaciarCarrito.addEventListener("click",vaciarCarrito);
+  btnVaciarCarrito.addEventListener("click",pedirConfirmacionVaciarCarrito);
 }
 
 main();
