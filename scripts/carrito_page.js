@@ -85,7 +85,7 @@ function cargarVentasAlHTML() {
 function main() {
   cargarVentasAlHTML();
 
-  btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
+  btnVaciarCarrito = document.getElementById("btn-confirmar-vaciar-carrito");
 
   btnVaciarCarrito.addEventListener("click",vaciarCarrito);
 }
