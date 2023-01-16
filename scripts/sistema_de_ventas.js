@@ -72,7 +72,7 @@ class SistemaDeVentas {
   hayStock(nombreDeProducto) {
     let stockDisponible = this.obtenerStock(nombreDeProducto);
 
-    return stockDisponible ? true : false;
+    return (stockDisponible > 0) ? true : false;
   }
 
   // Dada un producto y una cantidad, devuelve true si se puede realizar la venta, false en caso contrario
