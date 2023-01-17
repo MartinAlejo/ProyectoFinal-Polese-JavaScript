@@ -12,7 +12,20 @@ function vaciarCarrito() {
   calcularTotalAlHTML();
 }
 
-// Abre un modal donde se pide confirmacion para vaciar el carrit
+// Finaliza la compra del carrito, y remueves los productos de la compra
+function finalizarCompra() {
+
+  Swal.fire({
+    title: 'Compra realizada',
+    text: 'Gracias por tu compra',
+    icon: 'success',
+    showConfirmButton: false
+  });
+
+  vaciarCarrito();
+}
+
+// Abre un modal donde se pide confirmacion para vaciar el carrito
 function pedirConfirmacionVaciarCarrito() {
   Swal.fire({
     title: 'Borrar carrito',
@@ -103,8 +116,10 @@ function main() {
   cargarVentasAlHTML();
 
   btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
+  btnFinalizarCompra = document.getElementById("btn-finalizar-compra");
 
   btnVaciarCarrito.addEventListener("click",pedirConfirmacionVaciarCarrito);
+  btnFinalizarCompra.addEventListener("click",finalizarCompra);
 }
 
 main();
