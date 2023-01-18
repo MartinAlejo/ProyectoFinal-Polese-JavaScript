@@ -22,6 +22,12 @@ body {
   }
 }
 
+.btn-remover-producto {
+  &:hover {
+    color: rgb(185, 65, 65) !important;
+  }
+}
+
 #btn-vaciar-carrito {
   &:active {
     background-color: rgb(185, 65, 65);

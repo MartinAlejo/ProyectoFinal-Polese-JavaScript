@@ -43,6 +43,9 @@ body {
 .btnAgregarAlCarrito:active {
   background-color: #b94141; }
 
+.btn-remover-producto:hover {
+  color: #b94141 !important; }
+
 #btn-vaciar-carrito:active {
   background-color: #b94141; }
 

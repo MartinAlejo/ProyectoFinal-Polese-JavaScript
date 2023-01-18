@@ -12,9 +12,8 @@ function vaciarCarrito() {
   calcularTotalAlHTML();
 }
 
-// Finaliza la compra del carrito, y remueves los productos de la compra
+// Finaliza la compra del carrito, vaciandolo en el proceso
 function finalizarCompra() {
-
   Swal.fire({
     title: 'Compra realizada',
     text: 'Gracias por tu compra',
@@ -103,7 +102,7 @@ function cargarVentasAlHTML() {
     <td class=pt-3>${venta.producto.precio}</td>
     <td class=pt-3>${venta.cantidad}</td>
     <td class=pt-3>${venta.producto.precio * venta.cantidad}</td>
-    <td> <button onclick="removerVenta(this.id)" type="button" class="btn btn-danger" id="remover-${venta.producto.nombre}">Remover</button> </td>
+    <td> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </td>
     `;
 
     detallesDeLaVenta.appendChild(record);
