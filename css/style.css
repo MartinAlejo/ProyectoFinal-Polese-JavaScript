@@ -25,6 +25,12 @@
   height: 60vh;
   object-fit: cover; }
 
+.card-img-carrito {
+  width: 100%;
+  height: 15vh;
+  object-fit: cover;
+  width: 25vh; }
+
 .fontSizeTitle {
   font-size: 3rem; }
 
@@ -80,12 +86,7 @@ footer {
   .card-img-top {
     width: 100%;
     height: 35vh;
-    object-fit: cover; }
-  .card-img-carrito {
-    width: 100%;
-    height: 15vh;
-    object-fit: cover;
-    width: 20vh; } }
+    object-fit: cover; } }
 
 @media (min-width: 768px) {
   /* md */ }
@@ -103,7 +104,12 @@ footer {
   .modal img {
     width: 100%;
     height: 80vh;
-    object-fit: cover; } }
+    object-fit: cover; }
+  .card-img-carrito {
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
+    width: 25vh; } }
 
 @media (min-width: 1200px) {
   /* xl */

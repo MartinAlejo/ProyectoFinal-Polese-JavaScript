@@ -11,3 +11,8 @@
 .modal img {
   @include imgCoverWithHeight(60vh)
 }
+
+.card-img-carrito {
+  @include imgCoverWithHeight(15vh);
+  width: 25vh;
+}

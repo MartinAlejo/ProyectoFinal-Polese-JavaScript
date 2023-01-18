@@ -94,20 +94,6 @@ function cargarVentasAlHTML() {
     return;
   }
 
-  // for (venta of carritoParseado.ventas) {
-  //   let record = document.createElement("tr");
-
-  //   record.innerHTML = `
-  //   <th class=pt-3>${venta.producto.titulo}</th>
-  //   <td class=pt-3>${venta.producto.precio}</td>
-  //   <td class=pt-3>${venta.cantidad}</td>
-  //   <td class=pt-3>${venta.producto.precio * venta.cantidad}</td>
-  //   <td> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </td>
-  //   `;
-
-  //   detallesDeLaVenta.appendChild(record);
-  // }
-
   for (venta of carritoParseado.ventas) {
     let categoriaDeProducto = venta.producto.categoria;
     let carpetaImgs;
@@ -123,8 +109,9 @@ function cargarVentasAlHTML() {
 
     record.classList.add("card");
     record.classList.add("d-flex");
-    record.classList.add("flex-row");
-    record.classList.add("justify-content-around");
+    record.classList.add("flex-lg-row");
+    record.classList.add("flex-column");
+    record.classList.add("justify-content-center");
     record.classList.add("align-items-center");
     record.classList.add("bg-light");
     record.classList.add("rounded-pill");
@@ -133,22 +120,22 @@ function cargarVentasAlHTML() {
     record.classList.add("my-3");
 
     record.innerHTML = `
-    <div class="d-flex align-items-center">
+    <div class="col-2 my-3 my-lg-0 ms-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
       <img src="${carpetaImgs}/${venta.producto.nombreDeArchivo}" class="card-img-carrito text m-0 p-0 rounded-circle"/>
     </div>
-    <div class="d-flex align-items-center">
-      <p class="text m-0 p-0">${venta.producto.titulo}</p>
+    <div class="col-2 d-flex align-items-center">
+      <p class="text m-0 p-0"><b>${venta.producto.titulo}</b></p>
     </div>
-    <div class="d-flex align-items-center">
-      <p class="text m-0 p-0">$${venta.producto.precio}</p>
+    <div class="col-2 d-flex align-items-center">
+      <p class="text m-0 p-0">Precio unitario: $${venta.producto.precio}</p>
     </div>
-    <div class="d-flex align-items-center">
-      <p class="text m-0 p-0">${venta.cantidad}</p>
+    <div class="col-2 d-flex align-items-center">
+      <p class="text m-0 p-0">Cantidad: ${venta.cantidad}</p>
     </div>
-    <div class="d-flex align-items-center">
-      <p class="text m-0 p-0">$${venta.producto.precio * venta.cantidad}</p>
+    <div class="col-2 d-flex align-items-center">
+      <p class="text m-0 p-0">Subtotal: $${venta.producto.precio * venta.cantidad}</p>
     </div>
-    <div class="d-flex align-items-center">
+    <div class="col-1 d-flex align-items-center">
       <p class="text m-0"> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn p-0 m-0 text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </p>
     </div>
     `;
