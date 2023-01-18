@@ -10,6 +10,11 @@ function vaciarCarrito() {
   detallesDeLaVenta.innerHTML = "";
 
   calcularTotalAlHTML();
+
+  let containerBotoneraConTotal = document.getElementById("botonera-con-total");
+  containerBotoneraConTotal.remove();
+
+  cargarSeguirComprandoHTML();
 }
 
 // Finaliza la compra del carrito, vaciandolo en el proceso
@@ -83,6 +88,24 @@ function removerVenta(btnID) {
   mostrarContadorDelCarrito();
 }
 
+// Agrega los botones de vaciar carrito, finalizar compra, y el total de la compra
+function agregarBotonesYTotalAlHTML() {
+  let mainRow = document.getElementById("main-carrito-row");
+
+  let contenedor = document.createElement("div");
+  contenedor.id = "botonera-con-total";
+
+  contenedor.classList.add("col-12", "p-5", "ms-0", "d-flex", "flex-column", "flex-lg-row", "align-items-center", "align-items-lg-baseline");
+
+  contenedor.innerHTML = `
+  <button class="btn btn-secondary ms-lg-5" id="btn-vaciar-carrito">Vaciar carrito</button>
+  <p class="text my-4 my-lg-0 ms-lg-auto me-lg-5" id="total"><b>Total: </b>$0</p>
+  <button class="btn btn-secondary me-lg-5" id="btn-finalizar-compra">Comprar</button>
+  `;
+
+  mainRow.appendChild(contenedor);
+
+}
 
 // Carga las ventas del carrito almacenado en el storage al Html
 function cargarVentasAlHTML() {
@@ -107,17 +130,7 @@ function cargarVentasAlHTML() {
 
     let record = document.createElement("div");
 
-    record.classList.add("card");
-    record.classList.add("d-flex");
-    record.classList.add("flex-lg-row");
-    record.classList.add("flex-column");
-    record.classList.add("justify-content-center");
-    record.classList.add("align-items-center");
-    record.classList.add("bg-light");
-    record.classList.add("rounded-pill");
-    record.classList.add("m-0");
-    record.classList.add("p-3");
-    record.classList.add("my-3");
+    record.classList.add("card", "d-flex", "flex-column", "flex-lg-row", "justify-content-center", "align-items-center", "bg-light", "rounded-pill", "m-0", "p-3", "my-3");
 
     record.innerHTML = `
     <div class="col-12 col-lg-2 my-3 my-lg-0 ms-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
@@ -146,7 +159,32 @@ function cargarVentasAlHTML() {
   calcularTotalAlHTML();
 }
 
-function main() {
+// Carga al Html un mensaje al usuario de que el carrito esta vacio, y un boton para seguir comprando
+function cargarSeguirComprandoHTML() {
+  let mainRow = document.getElementById("main-carrito-row");
+
+  let contenedor = document.createElement("div");
+
+  contenedor.classList.add("col-12", "p-5", "ms-0", "d-flex", "flex-column", "align-items-center");
+
+  contenedor.innerHTML = `
+  <p>No hay elementos en el carrito</p>
+  <a href="../pages/productos_dulces.html" class="btn btn-secondary mt-4">Seguir comprando</a>
+  `;
+
+  mainRow.appendChild(contenedor);
+}
+
+// Construye el HTML de la pagina a partir del carrito, y agrega los eventos pertinentes
+function construirHTML() {
+  let carritoParseado = JSON.parse(localStorage.getItem("carrito"));
+
+  if (!carritoParseado || carritoParseado.ventas.length === 0) {
+    cargarSeguirComprandoHTML();
+    return;
+  }
+
+  agregarBotonesYTotalAlHTML();
   cargarVentasAlHTML();
 
   btnVaciarCarrito = document.getElementById("btn-vaciar-carrito");
@@ -154,6 +192,11 @@ function main() {
 
   btnVaciarCarrito.addEventListener("click",pedirConfirmacionVaciarCarrito);
   btnFinalizarCompra.addEventListener("click",finalizarCompra);
+}
+
+
+function main() {
+  construirHTML();
 }
 
 main();
