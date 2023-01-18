@@ -1,4 +1,5 @@
-// Elimina el carrito del local storage, y remueve todas las facturas del Html
+// Elimina el carrito del local storage, y remueve todas las facturas del Html. Luego, carga
+// un aviso al Html de que el carrito esta vacio
 function vaciarCarrito() {
   localStorage.removeItem("carrito");
 
@@ -67,7 +68,8 @@ function calcularTotalAlHTML() {
   elementoTotal.innerHTML = `<b>Total:</b> $${total}`;
 }
 
-// Remueve una venta del carrito y del HTML
+// Remueve una venta del carrito y del Html. Si resulta que luego de remover una venta el carrito esta
+// vacio, tambien carga un aviso en el Html al usuario
 function removerVenta(btnID) {
   let carritoParseado = JSON.parse(localStorage.getItem("carrito"));
 
@@ -86,6 +88,13 @@ function removerVenta(btnID) {
   cargarVentasAlHTML();
 
   mostrarContadorDelCarrito();
+
+  if (!carritoParseado || carritoParseado.ventas.length === 0) {
+    let containerBotoneraConTotal = document.getElementById("botonera-con-total");
+    containerBotoneraConTotal.remove();
+    
+    cargarSeguirComprandoHTML();
+  }
 }
 
 // Agrega los botones de vaciar carrito, finalizar compra, y el total de la compra
