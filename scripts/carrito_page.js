@@ -120,22 +120,22 @@ function cargarVentasAlHTML() {
     record.classList.add("my-3");
 
     record.innerHTML = `
-    <div class="col-2 my-3 my-lg-0 ms-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
+    <div class="col-12 col-lg-2 my-3 my-lg-0 ms-lg-5 d-flex align-items-center justify-content-center justify-content-lg-start">
       <img src="${carpetaImgs}/${venta.producto.nombreDeArchivo}" class="card-img-carrito text m-0 p-0 rounded-circle"/>
     </div>
-    <div class="col-2 my-3 my-lg-0 ms-lg-4 d-flex align-items-center justify-content-center justify-content-lg-start">
+    <div class="col-12 col-lg-2 my-3 my-lg-0 ms-lg-4 d-flex align-items-center justify-content-center justify-content-lg-start">
       <p class="text m-0 p-0"><b>${venta.producto.titulo}</b></p>
     </div>
-    <div class="col-2 my-3 my-lg-0 d-flex align-items-center justify-content-center justify-content-lg-start">
+    <div class="col-12 col-lg-2 my-3 my-lg-0 d-flex align-items-center justify-content-center justify-content-lg-start">
       <p class="text m-0 p-0">Precio unitario: $${venta.producto.precio}</p>
     </div>
-    <div class="col-2 my-3 my-lg-0 d-flex align-items-center justify-content-center justify-content-lg-start">
+    <div class="col-12 col-lg-2 my-3 my-lg-0 d-flex align-items-center justify-content-center justify-content-lg-start">
       <p class="text m-0 p-0">Cantidad: ${venta.cantidad}</p>
     </div>
-    <div class="col-2 my-3 my-lg-0 d-flex align-items-center justify-content-center justify-content-lg-start">
+    <div class="col-12 col-lg-2 my-3 my-lg-0 d-flex align-items-center justify-content-center justify-content-lg-start">
       <p class="text m-0 p-0">Subtotal: $${venta.producto.precio * venta.cantidad}</p>
     </div>
-    <div class="col-1 my-3 my-lg-0 d-flex align-items-center justify-content-center">
+    <div class="col-12 col-lg-1 my-3 my-lg-0 d-flex align-items-center justify-content-center">
       <p class="text m-0"> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn p-0 m-0 text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </p>
     </div>
     `;
