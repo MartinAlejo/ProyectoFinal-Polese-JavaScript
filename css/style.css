@@ -80,7 +80,12 @@ footer {
   .card-img-top {
     width: 100%;
     height: 35vh;
-    object-fit: cover; } }
+    object-fit: cover; }
+  .card-img-carrito {
+    width: 100%;
+    height: 15vh;
+    object-fit: cover;
+    width: 20vh; } }
 
 @media (min-width: 768px) {
   /* md */ }

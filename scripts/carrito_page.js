@@ -94,15 +94,63 @@ function cargarVentasAlHTML() {
     return;
   }
 
+  // for (venta of carritoParseado.ventas) {
+  //   let record = document.createElement("tr");
+
+  //   record.innerHTML = `
+  //   <th class=pt-3>${venta.producto.titulo}</th>
+  //   <td class=pt-3>${venta.producto.precio}</td>
+  //   <td class=pt-3>${venta.cantidad}</td>
+  //   <td class=pt-3>${venta.producto.precio * venta.cantidad}</td>
+  //   <td> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </td>
+  //   `;
+
+  //   detallesDeLaVenta.appendChild(record);
+  // }
+
   for (venta of carritoParseado.ventas) {
-    let record = document.createElement("tr");
+    let categoriaDeProducto = venta.producto.categoria;
+    let carpetaImgs;
+
+    if (categoriaDeProducto === "dulce") {
+      carpetaImgs = "../assets/images/productos_dulces";
+    }
+    else {
+      carpetaImgs = "../assets/images/productos_salados"
+    }
+
+    let record = document.createElement("div");
+
+    record.classList.add("card");
+    record.classList.add("d-flex");
+    record.classList.add("flex-row");
+    record.classList.add("justify-content-around");
+    record.classList.add("align-items-center");
+    record.classList.add("bg-light");
+    record.classList.add("rounded-pill");
+    record.classList.add("m-0");
+    record.classList.add("p-3");
+    record.classList.add("my-3");
 
     record.innerHTML = `
-    <th class=pt-3>${venta.producto.titulo}</th>
-    <td class=pt-3>${venta.producto.precio}</td>
-    <td class=pt-3>${venta.cantidad}</td>
-    <td class=pt-3>${venta.producto.precio * venta.cantidad}</td>
-    <td> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </td>
+    <div class="d-flex align-items-center">
+      <img src="${carpetaImgs}/${venta.producto.nombreDeArchivo}" class="card-img-carrito text m-0 p-0 rounded-circle"/>
+    </div>
+    <div class="d-flex align-items-center">
+      <p class="text m-0 p-0">${venta.producto.titulo}</p>
+    </div>
+    <div class="d-flex align-items-center">
+      <p class="text m-0 p-0">$${venta.producto.precio}</p>
+    </div>
+    <div class="d-flex align-items-center">
+      <p class="text m-0 p-0">${venta.cantidad}</p>
+    </div>
+    <div class="d-flex align-items-center">
+      <p class="text m-0 p-0">$${venta.producto.precio * venta.cantidad}</p>
+    </div>
+    <div class="d-flex align-items-center">
+      <p class="text m-0"> <i onclick="removerVenta(this.id)" type="button" class="btn-remover-producto btn p-0 m-0 text-muted bi bi-trash3-fill" id="remover-${venta.producto.nombre}"></i> </p>
+    </div>
     `;
 
     detallesDeLaVenta.appendChild(record);
